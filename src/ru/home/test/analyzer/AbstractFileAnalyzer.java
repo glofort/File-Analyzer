@@ -130,19 +130,21 @@ public abstract class AbstractFileAnalyzer {
         FileOutputStream fop = null;
         final File file;
         try {
-            String pathToJar = null;
-            try {
-                pathToJar = AbstractFileAnalyzer.class
-                        .getProtectionDomain()
-                        .getCodeSource()
-                        .getLocation()
-                        .toURI()
-                        .getPath()
-                        .replace("FileAnalyzer.jar", "");
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-            file = new File(pathToJar + "\\stats." + ext);
+//            String pathToJar = null;
+//            try {
+//                pathToJar = AbstractFileAnalyzer.class
+//                        .getProtectionDomain()
+//                        .getCodeSource()
+//                        .getLocation()
+//                        .toURI()
+//                        .getPath();
+//               // String path = pathToJar.split("^(.*)(\\/.+\\.jar)$")[0];
+//                System.out.println(pathToJar);
+//
+//            } catch (URISyntaxException e) {
+//                e.printStackTrace();
+//            }
+            file = new File(configuration.getPath() + "stats." + ext);
             if (!file.exists()) {
                 file.createNewFile();
             }
